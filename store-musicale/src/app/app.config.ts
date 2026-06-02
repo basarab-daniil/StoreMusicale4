@@ -1,12 +1,12 @@
-import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // Rimuove la dipendenza da Zone.js e abilita la reattività Zoneless nativa
-    provideExperimentalZonelessChangeDetection(),
+    // Configurazione zoneless stabile nativa per Angular 22+
+    provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient()
   ]
