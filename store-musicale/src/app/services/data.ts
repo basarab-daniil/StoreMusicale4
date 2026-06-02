@@ -16,7 +16,7 @@ export class Data {
   private http = inject(HttpClient);
 
   // URL di base per le chiamate API verso il server locale
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = '/api';
 
   // Stato globale dell'utente tramite BehaviorSubject
   private utenteSubject = new BehaviorSubject<UtenteLoggato | null>(null);
