@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="layout-container">
+  <aside class="sidebar">
+    <h3>Store Musicale</h3>
+    <nav>
+      <ul>
+        <li><a routerLink="/home">🏠 Home</a></li>
+        <li><a routerLink="/playlist">🎵 Le mie Playlist</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h2>Scopri la Nuova Musica</h2>
+
+    @if (errorMessage) {
+      <div class="errore">{{ errorMessage }}</div>
+    }
+
+    <div class="griglia-album">
+      @for (album of listaAlbums; track album.id) {
+        <div class="card-album">
+          <img [src]="album.copertina || 'https://via.placeholder.com/150'" class="copertina-album" alt="Copertina" />
+          <a [routerLink]="['/album', album.id]" class="link-titolo">{{ album.titolo }}</a>
+          <a [routerLink]="['/artista', album.artistaId]" class="link-artista">{{ album.nomeArtista }}</a>
+        </div>
+      } @empty {
+        <p>Nessun album disponibile nello store al momento.</p>
+      }
+    </div>
+  </main>
+</div>

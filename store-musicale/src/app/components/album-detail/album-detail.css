@@ -1,0 +1,86 @@
+.container-dettaglio {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.link-indietro {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.header-album {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.foto-grande {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.titolo-grande {
+  font-size: 28px;
+  margin: 15px 0 5px 0;
+}
+
+.sezione-artista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.foto-artista-mini {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.link-artista-cliccabile {
+  font-size: 18px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-artista-cliccabile:hover {
+  text-decoration: underline;
+}
+
+.sezione-tracce {
+  margin-top: 30px;
+}
+
+.lista-canzoni {
+  list-style: none;
+  padding: 0;
+}
+
+.canzione-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.canzione-item:hover {
+  background-color: #f9f9f9;
+}
+
+.durata {
+  color: #777;
+  font-size: 14px;
+}

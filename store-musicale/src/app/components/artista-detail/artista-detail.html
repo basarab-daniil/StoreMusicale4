@@ -1,1 +1,32 @@
-<p>artista-detail works!</p>
+<div class="container-artista">
+  <a routerLink="/home" class="link-indietro">← Torna alla Home</a>
+
+  @if (errorMessage) {
+    <div style="color: red;">{{ errorMessage }}</div>
+  }
+
+  @if (artista) {
+    <div class="profilo-artista">
+      <img [src]="artista.foto || 'https://via.placeholder.com/150'" class="foto-profilo" alt="Profilo" />
+      <div>
+        <h1 class="nome-artista">{{ artista.nome }}</h1>
+        <p style="color: #666; margin: 5px 0 0 0;">Genere: {{ artista.genere || 'Variato' }}</p>
+      </div>
+    </div>
+
+    <div class="sezione-discografia">
+      <h3>Tutti gli Album dell'artista</h3>
+      
+      <div class="griglia-album-artista">
+        @for (album of artista.albums; track album.id) {
+          <a [routerLink]="['/album', album.id]" class="card-album-art">
+            <img [src]="album.copertina || 'https://via.placeholder.com/140'" class="foto-album-art" alt="Copertina" />
+            <p class="titolo-album-art">{{ album.titolo }}</p>
+          </a>
+        } @empty {
+          <p>Nessun album registrato per questo artista.</p>
+        }
+      </div>
+    </div>
+  }
+</div>

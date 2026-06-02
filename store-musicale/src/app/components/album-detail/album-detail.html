@@ -1,1 +1,35 @@
-<p>album-detail works!</p>
+<div class="container-dettaglio">
+  <a routerLink="/home" class="link-indietro">← Torna alla Home</a>
+
+  @if (errorMessage) {
+    <div style="color: red;">{{ errorMessage }}</div>
+  }
+
+  @if (album) {
+    <header class="header-album">
+      <img [src]="album.copertina || 'https://via.placeholder.com/300'" class="foto-grande" alt="Copertina Album" />
+      <h1 class="titolo-grande">{{ album.titolo }}</h1>
+      
+      <div class="sezione-artista">
+        <img [src]="album.fotoArtista || 'https://via.placeholder.com/40'" class="foto-artista-mini" alt="Artista" />
+        <a [routerLink]="['/artista', album.artistaId]" class="link-artista-cliccabile">
+          {{ album.nomeArtista }}
+        </a>
+      </div>
+    </header>
+
+    <section class="sezione-tracce">
+      <h3>Tracce dell'album</h3>
+      <ul class="lista-canzoni">
+        @for (canzone of album.canzoni; track canzone.id; let i = $index) {
+          <li class="canzione-item">
+            <span>{{ i + 1 }}. <strong>{{ canzone.titolo }}</strong></span>
+            <span class="durata">{{ canzone.durata }}</span>
+          </li>
+        } @empty {
+          <p>Nessuna traccia presente in questo album.</p>
+        }
+      </ul>
+    </section>
+  }
+</div>
