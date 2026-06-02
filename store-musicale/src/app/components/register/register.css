@@ -1,0 +1,84 @@
+.container-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  font-family: sans-serif;
+}
+
+.box-register {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.titolo-register {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.alert-errore-reg {
+  color: red;
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid red;
+}
+
+.alert-successo-reg {
+  color: green;
+  background-color: #e6ffe6;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid green;
+}
+
+.form-group-reg {
+  margin-bottom: 15px;
+}
+
+.form-group-reg-ultimo {
+  margin-bottom: 20px;
+}
+
+.label-reg {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-reg {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-registrati {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.testo-login-reg {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.link-login-reg {
+  color: #007bff;
+  text-decoration: none;
+}

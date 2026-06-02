@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="container-register">
+  <div class="box-register">
+    <h2 class="titolo-register">Crea Account</h2>
+
+    @if (errorMessage) {
+      <div class="alert-errore-reg">
+        {{ errorMessage }}
+      </div>
+    }
+
+    @if (successMessage) {
+      <div class="alert-successo-reg">
+        {{ successMessage }}
+      </div>
+    }
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group-reg">
+        <label class="label-reg">Nome Utente:</label>
+        <input type="text" name="username" [(ngModel)]="username" class="input-reg" required />
+      </div>
+
+      <div class="form-group-reg">
+        <label class="label-reg">Email:</label>
+        <input type="email" name="email" [(ngModel)]="email" class="input-reg" required />
+      </div>
+
+      <div class="form-group-reg-ultimo">
+        <label class="label-reg">Password:</label>
+        <input type="password" name="password" [(ngModel)]="password" class="input-reg" required />
+      </div>
+
+      <button type="submit" class="btn-registrati">
+        Registrati
+      </button>
+    </form>
+
+    <p class="testo-login-reg">
+      Hai già un account? <a routerLink="/login" class="link-login-reg">Torna al Login</a>
+    </p>
+  </div>
+</div>
