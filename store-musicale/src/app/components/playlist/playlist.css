@@ -1,0 +1,149 @@
+.playlist-container {
+  display: flex;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+/* Sidebar di navigazione */
+.sidebar {
+  width: 220px;
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar a:hover {
+  color: white;
+}
+
+/* Corpo centrale */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.avviso-anonimo {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.btn-crea {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.form-creazione {
+  background: #eee;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.input-nome {
+  padding: 8px;
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.lista-playlists-group {
+  margin-top: 20px;
+}
+
+.playlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.playlist-item:hover {
+  background-color: #f0f0f0;
+}
+
+.playlist-attiva {
+  border-left: 5px solid #007bff;
+  background-color: #e9f3ff;
+}
+
+.btn-elimina {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Sezione Dettaglio Playlist */
+.sezione-gestione-crud {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.colonna-canzoni {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.canzone-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
