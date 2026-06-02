@@ -11,68 +11,56 @@
 
   <main class="main-content">
     <h2>Gestione Playlist Personali</h2>
+    <p>Benvenuto, <strong>{{ username }}</strong>! Qui puoi organizzare la tua musica.</p>
+    
+    @if (!mostraFormCreazione) {
+      <button class="btn-crea" (click)="mostraFormCreazione = true">➕ Crea Nuova Playlist</button>
+    }
 
-    @if (!utenteId) {
-      <div class="avviso-anonimo">
-        <p>⚠️ Attenzione: Devi aver effettuato l'accesso per visualizzare e creare le tue playlist personali.</p>
-        <a routerLink="/login" style="color: #007bff; font-weight: bold;">Vai al Login</a>
+    @if (mostraFormCreazione) {
+      <div class="form-creazione">
+        <input type="text" [(ngModel)]="nuovoNomePlaylist" placeholder="Nome della playlist..." class="input-nome" />
+        <button class="btn-crea" style="margin: 0;" (click)="handleCreaPlaylist()">Salva</button>
+        <button class="btn-elimina" style="margin-left: 5px;" (click)="mostraFormCreazione = false">Annulla</button>
       </div>
-    } @else {
-      <p>Benvenuto, <strong>{{ username }}</strong>! Qui puoi organizzare la tua musica.</p>
-      
-      @if (!mostraFormCreazione) {
-        <button class="btn-crea" (click)="mostraFormCreazione = true">➕ Crea Nuova Playlist</button>
-      }
+    }
 
-      @if (mostraFormCreazione) {
-        <div class="form-creazione">
-          <input type="text" [(ngModel)]="nuovoNomePlaylist" placeholder="Nome della playlist..." class="input-nome" />
-          <button class="btn-crea" style="margin: 0;" (click)="handleCreaPlaylist()">Salva</button>
-          <button class="btn-elimina" style="margin-left: 5px;" (click)="mostraFormCreazione = false">Annulla</button>
+    <div class="lista-playlists-group">
+      <h3>Le tue Playlist</h3>
+      @for (playlist of listaPlaylist; track playlist.id) {
+        <div class="playlist-item" [class.playlist-attiva]="playlistSelezionata?.id === playlist.id" (click)="selezionaPlaylist(playlist)">
+          <span>📂 {{ playlist.nome }}</span>
+          <button class="btn-elimina" (click)="handleEliminaPlaylist($event, playlist.id)">- Elimina</button>
         </div>
+      } @empty {
+        <p>Non hai ancora creato nessuna playlist. Comincia adesso!</p>
       }
+    </div>
 
-      <div class="lista-playlists-group">
-        <h3>Le tue Playlist</h3>
-        @for (playlist of listaPlaylist; track playlist.id) {
-          <div class="playlist-item" 
-               [class.playlist-attiva]="playlistSelezionata?.id === playlist.id"
-               (click)="selezionaPlaylist(playlist)">
-            <span>📂 {{ playlist.nome }}</span>
-            <button class="btn-elimina" (click)="handleEliminaPlaylist($event, playlist.id)">- Elimina</button>
-          </div>
-        } @empty {
-          <p>Non hai ancora creato nessuna playlist. Comincia adesso!</p>
-        }
+    @if (playlistSelezionata) {
+      <div class="sezione-gestione-crud">
+        <div class="colonna-canzoni">
+          <h4>Tracce in "{{ playlistSelezionata.nome }}"</h4>
+          @for (canzone of playlistSelezionata.canzoni; track canzone.id) {
+            <div class="canzone-row">
+              <span>🎵 {{ canzone.titolo }} - <small>{{ canzone.artista }}</small></span>
+              <button class="btn-elimina" (click)="handleRimuoviCanzone(canzone.id)">- Rimuovi</button>
+            </div>
+          } @empty {
+            <p style="color: #777;">Questa playlist è vuota. Aggiungi canzoni dall'elenco a destra.</p>
+          }
+        </div>
+
+        <div class="colonna-canzoni">
+          <h4>Aggiungi Canzoni dallo Store</h4>
+          @for (canzone of tutteLeCanzoni; track canzone.id) {
+            <div class="canzone-row">
+              <span>🎵 {{ canzone.titolo }} - <small>{{ canzone.artista }}</small></span>
+              <button class="btn-add" (click)="handleAggiungiCanzone(canzone.id)">+ Aggiungi</button>
+            </div>
+          }
+        </div>
       </div>
-
-      @if (playlistSelezionata) {
-        <div class="sezione-gestione-crud">
-          
-          <div class="colonna-canzoni">
-            <h4>Tracce in "{{ playlistSelezionata.nome }}"</h4>
-            @for (canzone of playlistSelezionata.canzoni; track canzone.id) {
-              <div class="canzone-row">
-                <span>🎵 {{ canzone.titolo }} - <small>{{ canzone.artista }}</small></span>
-                <button class="btn-elimina" (click)="handleRimuoviCanzone(canzone.id)">- Rimuovi</button>
-              </div>
-            } @empty {
-              <p style="color: #777;">Questa playlist è vuota. Aggiungi canzoni dall'elenco a destra.</p>
-            }
-          </div>
-
-          <div class="colonna-canzoni">
-            <h4>Aggiungi Canzoni dallo Store</h4>
-            @for (canzone of tutteLeCanzoni; track canzone.id) {
-              <div class="canzone-row">
-                <span>🎵 {{ canzone.titolo }} - <small>{{ canzone.artista }}</small></span>
-                <button class="btn-add" (click)="handleAggiungiCanzone(canzone.id)">+ Aggiungi</button>
-              </div>
-            }
-          </div>
-
-        </div>
-      }
     }
   </main>
 </div>
