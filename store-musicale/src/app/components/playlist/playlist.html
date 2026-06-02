@@ -63,7 +63,7 @@
 
           <div class="colonna-canzoni">
             <h4>Aggiungi Canzoni dallo Store</h4>
-            @for (canzone global of tutteLeCanzoni; track canzone.id) {
+            @for (canzone of tutteLeCanzoni; track canzone.id) {
               <div class="canzone-row">
                 <span>🎵 {{ canzone.titolo }} - <small>{{ canzone.artista }}</small></span>
                 <button class="btn-add" (click)="handleAggiungiCanzone(canzone.id)">+ Aggiungi</button>
